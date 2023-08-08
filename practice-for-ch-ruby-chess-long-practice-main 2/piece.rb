@@ -6,14 +6,8 @@ class Piece
         @position = position
     end
 
-    def to_s
-        if color == "black"
-            return "♜"
-        elsif color == "white"
-            return "♖"
-        else
-            return "N"
-        end
+    def to_s(sym)
+        sym
     end
 
     def empty?
