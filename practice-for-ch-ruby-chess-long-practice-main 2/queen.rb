@@ -17,7 +17,7 @@ class Queen < Piece
         self.possible_diagonal_moves + self.possible_straight_moves
     end
 
-    def threated_spaces
-        #possible moves + moves with own pieces
+    def threats
+        self.possible_threat_diagonal + self.possible_threat_horizontal
     end
 end

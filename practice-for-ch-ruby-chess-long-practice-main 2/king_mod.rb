@@ -54,4 +54,20 @@ module King_Moves
 
         op_moves
     end
+
+    def possible_threat
+        row, col = self.position
+        new_pos = []
+
+        new_pos = [[row - 1, col],[row - 1, col - 1]] # up one, up one + left one
+        new_pos += [[row - 1, col + 1], [row, col + 1]] # up one + right one, right one
+        new_pos += [[row, col - 1], [row + 1, col]] #left one, down one
+        new_pos += [[row + 1, col + 1], [row + 1, col - 1]] # down one + right one, down one + left one
+        # debugger
+        new_pos.reject do |coordinate|
+            row, col = coordinate
+            row < 0 || row > 7 || col < 0 || col > 7
+        end
+
+    end
 end

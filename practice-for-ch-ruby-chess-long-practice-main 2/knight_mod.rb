@@ -17,4 +17,18 @@ module Jump_Moves
         return false if self.board[[row, col]].color == self.color
         true
     end
+
+    def possible_threats
+        row, col = self.position
+        new_pos = []
+
+        new_pos = [[row - 2, col + 1],[row - 2, col - 1]] # up two, right and left one
+        new_pos += [[row - 1, col + 2], [row - 1, col - 2]] # up one, right and left two
+        new_pos += [[row + 1, col + 2], [row + 1, col - 2]] #down one, right and left two
+        new_pos += [[row + 2, col + 1], [row + 2, col - 1]] # down two, right and left one
+        new_pos.reject do |coordinate|
+            row, col = (coordinate)
+            row < 0 || row > 7 || col < 0 || col > 7
+        end
+    end
 end

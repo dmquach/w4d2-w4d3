@@ -14,7 +14,7 @@ class Pawn < Piece
         self.possible_pawn_moves
     end
 
-    # def threated_spaces
-
-    # end
+    def threats
+        self.possible_threat
+    end
 end

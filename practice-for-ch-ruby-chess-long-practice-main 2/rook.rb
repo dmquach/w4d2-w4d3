@@ -14,4 +14,8 @@ class Rook < Piece
     def moves
         self.possible_straight_moves
     end
+
+    def threats
+        self.possible_threat_horizontal
+    end
 end

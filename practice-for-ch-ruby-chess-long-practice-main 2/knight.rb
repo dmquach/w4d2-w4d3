@@ -14,4 +14,8 @@ class Knight < Piece
     def moves
         self.possible_jump_moves
     end
+
+    def threats
+        self.possible_threats
+    end
 end

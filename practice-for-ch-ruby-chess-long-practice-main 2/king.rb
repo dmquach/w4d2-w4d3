@@ -13,4 +13,8 @@ class King < Piece
     def moves
         self.possible_king_moves
     end
+
+    def threats
+        self.possible_threat
+    end
 end

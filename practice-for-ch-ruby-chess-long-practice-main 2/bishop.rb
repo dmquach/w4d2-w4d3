@@ -14,9 +14,8 @@ class Bishop < Piece
         self.possible_diagonal_moves
     end
 
-    def threated_spaced
-        
+    def threats
+        self.possible_threat_diagonal
     end
 
-    #spaces threatened
 end
