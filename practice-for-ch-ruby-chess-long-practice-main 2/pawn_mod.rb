@@ -45,7 +45,7 @@ module Pawn_Moves
         end
 
         if self.color == "black"
-            return [] if row + 1 < 0
+            return [] if row + 1 > 7
             unless col - 1 < 0
                 moves << [row + 1, col - 1] if self.board[[row + 1, col - 1]].color == "white"
             end

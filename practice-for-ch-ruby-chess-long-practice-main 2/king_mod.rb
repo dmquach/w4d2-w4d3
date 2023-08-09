@@ -38,12 +38,20 @@ module King_Moves
 
         op_moves = []
 
-        # debugger
+        #debugger
         op_pieces.each do |piece|
-            piece.moves.each {|move| op_moves << move unless op_moves.include?(move)}
+            arr = piece.moves  #threated_spaced
+            unless arr.empty?
+                arr.each do |move|
+                    unless op_moves.include?(move)
+                        op_moves << move
+                    end
+                end
+            end
         end
-        debugger
-        
+        puts
+
+
         op_moves
     end
 end

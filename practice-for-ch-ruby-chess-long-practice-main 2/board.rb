@@ -40,7 +40,7 @@ class Board
         unless self[start_pos].moves.include?(end_pos)
             raise RuntimeError "Invalid end position"
         end
-        
+
         move_piece(start_pos)
     end
 
@@ -87,14 +87,14 @@ class Board
             row += 1
         end
 
-        self[[7, 0]] = Rook.new("white", self, [8, 0])
-        self[[7, 1]] = Knight.new("white", self, [8, 1])
-        self[[7, 2]] = Bishop.new("white", self, [8, 2])
-        self[[7, 3]] = Queen.new("white", self, [8, 3])
-        self[[7, 4]] = King.new("white", self, [8, 4])
-        self[[7, 5]] = Bishop.new("white", self, [8, 5])
-        self[[7, 6]] = Knight.new("white", self, [8, 6])
-        self[[7, 7]] = Rook.new("white", self, [8, 7])
+        self[[7, 0]] = Rook.new("white", self, [7, 0])
+        self[[7, 1]] = Knight.new("white", self, [7, 1])
+        self[[7, 2]] = Bishop.new("white", self, [7, 2])
+        self[[7, 3]] = Queen.new("white", self, [7, 3])
+        self[[7, 4]] = King.new("white", self, [7, 4])
+        self[[7, 5]] = Bishop.new("white", self, [7, 5])
+        self[[7, 6]] = Knight.new("white", self, [7, 6])
+        self[[7, 7]] = Rook.new("white", self, [7, 7])
     end
 
     def print
@@ -109,7 +109,7 @@ class Board
     end
 
     def check_mate()
-        # 
+        #
         # find king instance of current player, get pos of king
         #  one cond. check legal pos for king, if empty checkmate
     end

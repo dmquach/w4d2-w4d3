@@ -7,9 +7,8 @@ module Slideable_Straight
 
     private
     def move_up
-        #debugger
         possible_moves = []
-        row, col = self.position #[3,3]
+        row, col = self.position #[7,0]
         stopped = false
         i = 1
         until stopped
@@ -84,4 +83,3 @@ module Slideable_Straight
         possible_moves
     end
 end
-

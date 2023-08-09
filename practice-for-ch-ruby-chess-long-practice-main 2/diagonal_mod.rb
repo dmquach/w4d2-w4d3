@@ -2,7 +2,7 @@ module Slideable_Diagonal
     def possible_diagonal_moves
         arr = self.move_upright + self.move_upleft + self.move_downright + self.move_downleft
     end
-  
+
 
     def move_upright
         possible_moves = []
@@ -32,7 +32,7 @@ module Slideable_Diagonal
         stopped = false
         i = 1
         until stopped
-            if (row - i < 0 || col - i > 7) || (self.board[[row - i, col - i]]).color == self.color
+            if (row - i < 0 || col - i < 0) || (self.board[[row - i, col - i]]).color == self.color
                 stopped = true
             elsif (self.board[[row - i, col - i]]).class == NullPiece #no piece there
                 possible_moves << [row - i, col - i]
@@ -49,12 +49,11 @@ module Slideable_Diagonal
 
     def move_downright
         possible_moves = []
-
         row, col = self.position
         stopped = false
         i = 1
         until stopped
-            if (row + i < 0 || col + i > 7) || (self.board[[row + i, col + i]]).color == self.color
+            if row + i > 7 || col + i > 7 || (self.board[[row + i, col + i]]).color == self.color
                 stopped = true
             elsif (self.board[[row + i, col + i]]).class == NullPiece #no piece there
                 possible_moves << [row + i, col + i]
@@ -76,7 +75,7 @@ module Slideable_Diagonal
         stopped = false
         i = 1
         until stopped
-            if (row + i < 0 || col - i > 7) || (self.board[[row + i, col - i]]).color == self.color
+            if (row + i > 7 || col - i < 0) || (self.board[[row + i, col - i]]).color == self.color
                 stopped = true
             elsif (self.board[[row + i, col - i]]).class == NullPiece #no piece there
                 possible_moves << [row + i, col - i]
