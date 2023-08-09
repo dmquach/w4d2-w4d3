@@ -28,7 +28,7 @@ class Board
     def move_piece(start_pos, end_pos)
         # TODO check if move valid
         self[end_pos] = self[start_pos] #overwrite ending position piece (nil or opposite color) with piece on start pos
-        self[start_pos]= NullPiece.new("null", self, [start_pos]) #this now is a null piece
+        self[start_pos]= NullPiece.instance #this now is a null piece
         self[end_pos].position = end_pos
         #If move not valid retry, get another move
     end
@@ -56,11 +56,12 @@ class Board
             row += 1
         end
 
-
+        # NullPiece.("null")
         while row < 6 #creates null pieces
+
             col = 0
             while col < 8
-                self[[row, col]]= NullPiece.new("null", self, [row, col])
+                self[[row, col]]= NullPiece.instance
                 col += 1
             end
             row += 1

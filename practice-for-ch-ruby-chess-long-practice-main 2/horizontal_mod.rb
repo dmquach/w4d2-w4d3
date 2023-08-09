@@ -1,7 +1,7 @@
 require 'byebug'
 
 module Slideable_Straight
-    def possible_moves
+    def possible_straight_moves
         arr = self.move_up + self.move_down + self.move_right + self.move_left
     end
 
@@ -51,7 +51,7 @@ module Slideable_Straight
         stopped = false
         i = 1
         until stopped
-            debugger
+            # debugger
             if  col + i > 7 || (self.board[[row, col + i]]).color == self.color #hit own piece or edge of board
                 stopped = true
             elsif (self.board[[row, col + i]]).class == NullPiece #no piece there
@@ -84,25 +84,4 @@ module Slideable_Straight
         possible_moves
     end
 end
-=begin
 
-module Slideable_Diagonal
-    possible_moves = []
-
-    def move_upright
-
-    end
-
-    def move_upleft
-
-    end
-
-    def move_downright
-
-    end
-
-    def move_downleft
-
-    end
-end
-=end

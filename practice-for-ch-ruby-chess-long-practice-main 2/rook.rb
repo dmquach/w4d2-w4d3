@@ -1,5 +1,5 @@
 require_relative 'piece.rb'
-require_relative 'module.rb'
+require_relative 'horizontal_mod.rb'
 
 class Rook < Piece
     include Slideable_Straight
@@ -12,6 +12,6 @@ class Rook < Piece
     end
 
     def moves
-        self.possible_moves
+        self.possible_straight_moves
     end
 end
