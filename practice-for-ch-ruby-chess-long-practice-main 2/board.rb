@@ -26,11 +26,22 @@ class Board
     end
 
     def move_piece(start_pos, end_pos)
-        # TODO check if move valid
         self[end_pos] = self[start_pos] #overwrite ending position piece (nil or opposite color) with piece on start pos
         self[start_pos]= NullPiece.instance #this now is a null piece
         self[end_pos].position = end_pos
         #If move not valid retry, get another move
+    end
+
+    def valid_input(start_pos, end_pos, turn_color)
+        if self[start_pos].color != turn_color
+            raise RuntimeError "Invalid Start Piece"
+        end
+
+        unless self[start_pos].moves.include?(end_pos)
+            raise RuntimeError "Invalid end position"
+        end
+        
+        move_piece(start_pos)
     end
 
     # private
