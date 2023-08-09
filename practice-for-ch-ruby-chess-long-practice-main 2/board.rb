@@ -9,7 +9,7 @@ require_relative 'null_piece.rb'
 require 'byebug'
 
 class Board
-    attr_accessor :rows
+    attr_accessor :rows, :board
     def initialize()
         @board = Array.new(8) {Array.new(8, nil)}
         # self.set
@@ -106,5 +106,11 @@ class Board
             puts arr.join(" ")
         end
         nil
+    end
+
+    def check_mate()
+        # 
+        # find king instance of current player, get pos of king
+        #  one cond. check legal pos for king, if empty checkmate
     end
 end

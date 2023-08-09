@@ -1,3 +1,4 @@
+require 'byebug'
 module King_Moves
     def possible_king_moves
         row, col = self.position
@@ -15,6 +16,34 @@ module King_Moves
         return false if row < 0 || row > 7
         return false if col < 0 || col > 7
         return false if self.board[[row, col]].color == self.color
+        return false if get_op_move.include? pos
         true
+
+        # king.color based on curr pos
+        # iterate through board and store all opo. pieces pos
+        # iterate through opo. pos arr and store all their vaild moves
+        # compare king pos/curr pos against opo. piece's valid moves
+
+
+    end
+
+    def get_op_move
+        op_pieces = []
+        # debugger
+        self.board.board.each do |row|
+            row.each do |piece|
+                op_pieces << piece if (piece.color != self.color && piece.class != NullPiece)
+            end
+        end
+
+        op_moves = []
+
+        # debugger
+        op_pieces.each do |piece|
+            piece.moves.each {|move| op_moves << move unless op_moves.include?(move)}
+        end
+        debugger
+        
+        op_moves
     end
 end
