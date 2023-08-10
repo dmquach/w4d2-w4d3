@@ -29,7 +29,6 @@ module King_Moves
 
     def get_op_move
         op_pieces = []
-        # debugger
         self.board.board.each do |row|
             row.each do |piece|
                 op_pieces << piece if (piece.color != self.color && piece.class != NullPiece)
@@ -38,19 +37,14 @@ module King_Moves
 
         op_moves = []
 
-        #debugger
         op_pieces.each do |piece|
-            arr = piece.moves  #threated_spaced
-            unless arr.empty?
-                arr.each do |move|
-                    unless op_moves.include?(move)
-                        op_moves << move
-                    end
+            arr = piece.threats  #threated_space
+            arr.each do |move|
+                unless op_moves.include?(move)
+                    op_moves << move
                 end
             end
         end
-        puts
-
 
         op_moves
     end

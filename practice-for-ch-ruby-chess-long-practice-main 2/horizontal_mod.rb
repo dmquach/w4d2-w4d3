@@ -9,7 +9,6 @@ module Slideable_Straight
         arr = self.move_up_threat + self.move_down_threat + self.move_right_threat + self.move_left_threat
     end
 
-    private
     def move_up
         possible_moves = []
         row, col = self.position #[7,0]
